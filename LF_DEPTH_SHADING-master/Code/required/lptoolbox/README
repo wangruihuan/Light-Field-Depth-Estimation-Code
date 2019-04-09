@@ -1,0 +1,22 @@
+Laplacian Pyramid Toolbox (version 1.0, June 2004)
+http://www.ifp.uiuc.edu/~minhdo/software/
+
+This toolbox contains Matlab files that implement the Laplacian pyramid (LP) 
+decomposition and the new reconstruction method in [1].
+
+The main functions are LPD and LPR for LP decomposition and reconstruction,
+respectively.  The script LPDEMO provides an example on how to use the
+main functions in the toolbox.
+
+Features:
++ Can handle signals of any dimension
++ Contain several popular pyramid filters such as '9/7', '5/3' and the 
+  original 'Burt' filters
++ Have border handling
+ 
+Limitation:
+- Only work with signal size of power of 2
+
+References:
+[1] M. N. Do and M. Vetterli, "Framming pyramids", 
+    IEEE Transactions on Signal Processing, Sep. 2003.

@@ -1,0 +1,5 @@
+This 4D light field dataset was trasformed without distortion from StillLife scene in HCI benchmark (http://klimt.iwr.uni-heidelberg.de/HCI/Research/LightField/lf_benchmark.php).
+HCI benchmark was created by HCI at Heidelberg University.
+This dataset is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. 
+To view a copy of this license visit https://creativecommons.org/licenses/by-nc-sa/4.0/. 
+

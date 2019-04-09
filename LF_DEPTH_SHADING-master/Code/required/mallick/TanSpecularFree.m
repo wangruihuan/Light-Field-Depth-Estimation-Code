@@ -1,0 +1,52 @@
+function imgSpecFree = TanSpecularFree(img)
+%   
+%       imgSpecFree = TanSpecularFree(img)
+%
+%        This function 
+%
+%        Input:
+%           -imgNor: 
+%           -imgSpec:
+%           -thR:
+%           -thG:
+%
+%        Output:
+%           -mask:
+%
+%     Copyright (C) 2011  Francesco Banterle
+% 
+%     This program is free software: you can redistribute it and/or modify
+%     it under the terms of the GNU General Public License as published by
+%     the Free Software Foundation, either version 3 of the License, or
+%     (at your option) any later version.
+% 
+%     This program is distributed in the hope that it will be useful,
+%     but WITHOUT ANY WARRANTY; without even the implied warranty of
+%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%     GNU General Public License for more details.
+% 
+%     You should have received a copy of the GNU General Public License
+%     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+
+lambda = 0.6;
+camDark = 10/255; %too dark pixels
+
+imgSpecFree = img;
+
+%check for camera dark and achromatic pixels
+indx = find(img(:,:,1)<camDark&img(:,:,2)<camDark&img(:,:,3)<camDark);
+img(indx) = camDark; 
+
+rgbMax = max(img,[],3);
+tot = img(:,:,1)+img(:,:,2)+img(:,:,3);
+c = RemoveSpecials(rgbMax./tot); %MaxChroma
+dI = (rgbMax.*(3*c-1))./(c*(3*lambda-1));
+sI = (tot-dI)/3;
+
+for i=1:3
+    imgSpecFree(:,:,i) = img(:,:,i)-sI;
+end
+
+imgSpecFree = ClampImg(imgSpecFree,0,1);
+end

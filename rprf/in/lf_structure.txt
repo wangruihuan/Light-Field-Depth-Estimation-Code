@@ -1,0 +1,22 @@
+lf/XX_YY.png: Color images for view position XX in row (top to bottom) and YY in column (left to right)
+
+attributes.dat: Attributes for the light field
+		Example for stillLife_lf_3x3:
+			768 //xRes => Image width
+			768 //yRes => Image height
+			3 //hRes => Number of views in horizontal position
+			3 //vRes => Number of views in vertical position
+			6.144000e+002 //dH			=> Parameters to calculate disparity from depth in HCI dataset
+			288 //shift							=> Parameters to calculate disparity from depth in HCI dataset
+			9.375000 //focalLength	=> Parameters to calculate disparity from depth in HCI dataset
+															=> If focalLength=0, the values of depth.bin represent disparity directly
+			-10.827057 //min_disp => Minimum disparity
+			16.158417 //max_disp  => Maximum disparity
+
+cross_pattern.dat: View sampling positions for crosshair configuration
+
+depth.bin: Ground-truth depth (or disparity) map in single-precision floating-point (32-bit) and in raster scan 
+
+disp_rel.png: Ground-truth disparity map converted from depth.bin (only for viewing purpose)
+
+mask.png: Mask map for calculating MSE
